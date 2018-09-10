@@ -1,4 +1,12 @@
-
+/* Task Two Implement the above program in JAVA using one of the ADTs suggested in ch. 1.3
+ * Written by Oscar Eklund
+ * Last edited 2018-09-10
+ * Stack(int) creates a new Stack of size int
+ * push(char) adds an element to the highest index
+ * pop() removes an element from the highest index
+ * Explanation: I've implemented the program using a stack, i push chars onto the stack and then pop them
+ * Since stacks are LIFO this means the input will be reversed.
+ */
 public class Stack {
 	
 		private char a[]; // instance variable form of array

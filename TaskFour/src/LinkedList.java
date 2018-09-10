@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class LinkedList<Item> implements Iterable<Item>{
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { // test client
 		LinkedList<Character> a = new LinkedList<Character>();
 		a.addlast('a');
 		a.addlast('b');

@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class LinkedList<Item> implements Iterable<Item>{
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { // test client
 		LinkedList<Character> a = new LinkedList<Character>();
 		a.enqueue('a');
 		a.enqueue('b');
@@ -20,7 +20,8 @@ public class LinkedList<Item> implements Iterable<Item>{
 		a.enqueue('f');
 		a.enqueue('g');
 		a.enqueue('h');
-		
+		a.dequeue();
+		a.dequeue();
 		Iterator<Character> iter = a.iterator(); // test iterator
 		while(iter.hasNext() == true) {
 			StdOut.print(iter.next());
