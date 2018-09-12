@@ -24,6 +24,6 @@ int main() {
 		}
 	}
 	if(countright == countleft) {printf("balanced");}
-	else if(countright < countleft) {printf("check )}]");}
-	else if(countleft < countright) {printf("check ({[");}
+	else if(countright < countleft) {printf("there are too few )}]");}
+	else if(countleft < countright) {printf("there are too few ({[");}
 }
