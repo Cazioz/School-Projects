@@ -29,11 +29,11 @@ public class LinkedList<Item> implements Iterable<Item>{
 		
 		StdOut.print("\n");
 		
-		for(int i = a.N; i > 0; i--) { // test prev function in LinkedList
+		for(int i = a.N; i > 0; i--) { // test that linkedlist is in fact double linked, using prev "pointer"
 			StdOut.print(a.last.data);
 			a.last = a.last.prev;
 		}
-			
+		StdOut.print("\n");
 		StdOut.print(ToString(a)); // tests ToString function
 	}
 	
@@ -48,7 +48,7 @@ public class LinkedList<Item> implements Iterable<Item>{
 	}
 	
 	public static String ToString(LinkedList<Character> list) {	// ToString function takes LinkedList and returns in String format
-		String ret = "";
+		String ret = "[";
 		
 		for(int i = 0; i < list.N; i++) { // utilizing size of queue and for loop to convert each char to string
 			ret = ret + Character.toString(list.first.data) + "]"; // and then add to a string which

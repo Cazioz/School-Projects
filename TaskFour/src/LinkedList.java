@@ -34,6 +34,7 @@ public class LinkedList<Item> implements Iterable<Item>{
 			StdOut.print(iter.next());
 			count++;
 		}	
+		StdOut.print("\n");
 
 		StdOut.print(ToString(a)); // tests ToString function 
 		

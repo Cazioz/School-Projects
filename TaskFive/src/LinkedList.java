@@ -71,9 +71,9 @@ public class LinkedList {
 	
 	public char dequeue(int pos) { // removes a char from position pos of the queue and returns char
 		if(pos < N) {  // checks whether element at pos exists
-		char ret = a[pos];
+		char ret = a[pos]; // save value to be returned
 		for(int i = pos; i < N; i++) { // moves all elements after pos "down one position" in index
-			a[i] = a[i + 1];
+			a[i] = a[i + 1];  // and as such element is removed
 		}
 		N--;
 		return ret;

@@ -4,6 +4,8 @@
  * Stack(int) creates a new Stack of size int
  * push(char) adds an element to the highest index
  * pop() removes an element from the highest index
+ * isEmpty() checks whether stack is empty
+ * size() checks amount of chars in array (on stack)
  * Explanation: I've implemented the program using a stack, i push chars onto the stack and then pop them
  * Since stacks are LIFO this means the input will be reversed.
  */
@@ -25,13 +27,13 @@ public class Stack {
 			return a[(s)];
 		}
 		
-		public boolean isEmpty() { // check whether size == 0
+		public boolean isEmpty() { // check whether size (items in stack) == 0
 			if(s == 0) { return true; } // aka if array is empty
 			else { return false; }
 		}
 		
 		public int size() { // check amount of chars in array
-			return s;
+			return s - 1;
 		}
 		
 		// test client which tests all functions of Stack
@@ -47,7 +49,7 @@ public class Stack {
 			if(ReverseStack.isEmpty() == false) { StdOut.print("Stack is not empty \n"); } // test of isEmpty function
 			StdOut.print("Size of Stack is: " + ReverseStack.size() + "\n");
 			
-			for(int i = ReverseStack.size(); i > 0; i--) { // Print out in reverse order, highest index -> lowest
+			for(int i = ReverseStack.size(); i >= 0; i--) { // Print out in reverse order, highest index -> lowest
 				StdOut.print(ReverseStack.pop());
 			}
 		}
