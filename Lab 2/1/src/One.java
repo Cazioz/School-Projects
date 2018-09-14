@@ -32,13 +32,15 @@ public class One {
 					min = j; // once a smaller int has been found set min = j and continue loop until j is = a.length
 				}	
 			}
-			int ex = a[i]; // exchange positions of smallest int and a[i]
-			a[i] = a[min];
-			a[min] = ex;
-			StdOut.print(toString(a)); // prints string representation of array
-			StdOut.print("\n");
+			if(a[i] > a[min]) { // only necessary to do an exchange if new min is actually smaller.
+				int ex = a[i]; // exchange positions of smallest int and a[i]
+				a[i] = a[min];
+				a[min] = ex;
+				StdOut.print(toString(a)); // prints string representation of array
+				StdOut.print("\n");
 			}
 		}
+	}
 	public static String toString(int[] b) { // simple array to string function
 		String c = "";
 		for(int i = 0; i < b.length; i++) { // for loop that adds every int to the string and then
