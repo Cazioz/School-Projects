@@ -33,7 +33,7 @@ public static void main(String[] args) { //test client
 	} 
 	
 	public static int[] sort(int[] a) { // argument is array that you want sorted
-			
+		int swapCount = 0;  // Task Three counter for number of swaps
 		for(int i = 0; i < a.length; i++) { // outer loop is for exchanging variables found in inner loop
 			int min = i; // initial value, may change if a[i] is not smallest int
 				
@@ -42,14 +42,16 @@ public static void main(String[] args) { //test client
 					min = j; // once a smaller int has been found set min = j and continue loop until j is = a.length
 				}	
 			}
-			if(a[i] > a[min]) { // only necessary to do an exchange if new min is actually smaller.
+			if(a[i] > a[min]) { // only necessary to do an exchange if new min is actually smaller
 				int ex = a[i]; // exchange positions of smallest int and a[i]
 				a[i] = a[min];
 				a[min] = ex;
 				StdOut.print(toString(a)); // prints string representation of array
 				StdOut.print("\n");
+				swapCount++; // if a swap was done increment swapCount
 			}
 		}
+		StdOut.print("Number of swaps was: " + swapCount + "\n");
 		return a;
 	}
 	public static String toString(int[] b) { // simple array to string function
