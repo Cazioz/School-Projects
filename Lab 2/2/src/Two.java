@@ -1,3 +1,10 @@
+/* Task Two
+* Written by Oscar Eklund
+* Last edited 2018-09-17
+* sort(int[]) sorts int[] in ascending order
+* toString(int[]) returns string representation of int[]
+* Program implements Insertion sort which sorts in ascending order and also reverses the array
+*/
 import java.util.Scanner;
 
 public class Two {
@@ -6,7 +13,6 @@ public class Two {
 		Scanner input = new Scanner(System.in); // utilizing scanner for input of integers for array
 		StdOut.print("Please enter size of array: ");
 		int size = StdIn.readInt(); // size of array
-		int revarr[] = new int[size];
 		if(size <= 0) { // just to be safe if the user is a bit stupid..
 			StdOut.print("\n" + "That's an invalid size."); 
 			throw new NegativeArraySizeException();
@@ -19,18 +25,19 @@ public class Two {
 			for(int i = 0; i < size; i++) {
 				array[i] = input.nextInt(); // using scanner inside a for loop
 			}
-			
-			revarr = sort(array); // Task Two code to reverse array, simple for loop exchanging last value with first value
-			int end = size - 1; // and then increment so first value is second value etc..
+			sort(array);
+			int end = size - 1; // task two switches highest index with lowest index and then increments i and decreases end
 			for(int i = 0; i < end; i++) {
-				int temp = revarr[i]; // temp value so no value is lost
-				revarr[i] = revarr[end];
-				revarr[end] = temp;
+				int temp = array[i]; // temp value so no value is lost
+				array[i] = array[end];
+				array[end] = temp;
 				end--;
 			}
-			StdOut.print(toString(revarr));
-		}		
-	} 
+			StdOut.print(toString(array));
+			
+						
+		}
+	}
 	
 	public static int[] sort(int[] a) { // argument is array that you want sorted
 			
