@@ -1,0 +1,36 @@
+EXECUTION EXAMPLES
+Written by Oscar Eklund CINTE17
+Last edited 2018-09-17
+
+QUESTION 1: Using input [1, 2, 4, 3, 5, 0] gives result
+0,2,4,3,5,1
+0,1,4,3,5,2
+0,1,2,3,5,4
+0,1,2,3,4,5
+
+QUESTION 2: Using input [1, 2, 4, 3, 5, 0] gives result
+0,2,4,3,5,1
+0,1,4,3,5,2
+0,1,2,3,5,4
+0,1,2,3,4,5
+5,4,3,2,1,0
+
+QUESTION 3: Using input [1, 2, 4, 3, 5, 0] gives result
+0,2,4,3,5,1
+0,1,4,3,5,2
+0,1,2,3,5,4
+0,1,2,3,4,5
+Number of swaps was: 4
+5,4,3,2,1,0
+
+QUESTION 4: Using input [1, 2, 4, 3, 5, 0] gives result
+[[0,1],[5,0]] [[1,2],[5,0]] [[2,4],[3,3]] [[2,4],[5,0]] [[3,3],[5,0]] [[4,5],[5,0]] 
+0,2,4,3,5,1
+0,1,4,3,5,2
+0,1,2,3,5,4
+0,1,2,3,4,5
+Number of swaps was: 4
+5,4,3,2,1,0
+
+QUESTION 5: Using input [1, 4, -5, -2, 0, -1] gives result
+-5 -2 -1 4 0 1

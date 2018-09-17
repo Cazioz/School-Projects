@@ -9,8 +9,8 @@
 
  #include <stdio.h>
  int main() {
-	int size = 7; // input of array is not stated to be a part of the task
-	int array[] = {1, 4, -5, 3, -2, 0, -1}; // therefor i simply create an array and state its size
+	int size = 6; // input of array is not stated to be a part of the task
+	int array[] = {1, 4, -5, -2, 0, -1}; // therefor i simply create an array and state its size
 	sortNegative(array, size);
 	printArray(array, size);
  }
