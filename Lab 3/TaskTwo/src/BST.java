@@ -1,4 +1,23 @@
-
+/* Task Two
+ * Written By Oscar Eklund
+ * Last Edited 2018-09-28
+ * Implemented using Binary Search Tree Symbol Table
+ * Test using FrequenceCounter yielded results:
+ * size() returns amount of elements in symbol tree
+ * min() returns min key
+ * max() returns max key
+ * keys() returns Key[] with all keys
+ * keys(int) returns String[] of size int with min keys to int
+ * get(Key) returns Key's value pair
+ * put(Key, Value) adds Key-Value pair to array, if Key already exists in array only updates Value
+ * contains(Key) determines whether key is in array
+ * N = 100, time taken by an average of 10 tests: 0.029ms, word "of"
+ * N = 200, time taken by an average of 10 tests: 0.031ms, word "Chapter"
+ * N = 400, time taken by an average of 10 tests: 0.033ms, word "Chapter"
+ * N = 800, time taken by an average of 10 tests: 0.035ms, word "the"
+ * N = 2000, time taken by an average of 10 tests: 0.041ms, word "the"
+ * N = 10000, time taken by an average of 10 tests: 0.063ms, word "the"
+ */
 public class BST<Key extends Comparable<Key>, Value>
 {
 	public static void main(String[] args) {
@@ -81,7 +100,7 @@ public class BST<Key extends Comparable<Key>, Value>
 		if (cmplo < 0) {
 			keys(x.left, queue, lo, hi);
 			}
-		if (cmplo <= 0 && cmphi >= 0) 
+		if (cmplo <= 0 && cmphi >= 0 && count < queue.length) 
 		{
 			//StdOut.print("adding " + x.key + " to count = " + count);
 			

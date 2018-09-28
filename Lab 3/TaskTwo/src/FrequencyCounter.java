@@ -4,14 +4,18 @@ public class FrequencyCounter
 	public static void main(String[] args)
 	{
 		Stopwatch timer = new Stopwatch();
-		int N = 500000;
+		int N =10000;
 		int bstkeysize = N + 1;
 		int count = 0;
 		int minlen = Integer.parseInt(args[0]); // key-length cutoff
 		
-		//BinarySearchST<String, Integer> st = new BinarySearchST(N);
-		BST<String, Integer> bst = new BST<String, Integer>();
 		
+		//
+		
+		// Find a key with the highest frequency count.
+		
+		BST<String, Integer> bst = new BST<String, Integer>();
+		//Binary search tree symbol table
 		while (!StdIn.isEmpty() && count <= N)
 		{ // Build symbol table and count frequencies.
 			count++;
@@ -42,15 +46,15 @@ public class FrequencyCounter
 				max = newmax;
 			}
 		}
-		StdOut.print(bst.get(max));
-		StdOut.print(max);
+		StdOut.println(max + " " + bst.get(max));	
+		double time = timer.elapsedTime();
+		StdOut.print("Program took " + time +"ms");
 		
 		
 		
-		// Find a key with the highest frequency count.
 		
-		
-		/*
+		//Binary Search in an ordered array
+		/*BinarySearchST<String, Integer> st = new BinarySearchST(N);
 		while (!StdIn.isEmpty() && count <= N)
 		{ // Build symbol table and count frequencies.
 			count++;
