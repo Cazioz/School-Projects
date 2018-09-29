@@ -1,6 +1,6 @@
-/* Task Two
+/* Task Two and Three
  * Written By Oscar Eklund
- * Last Edited 2018-09-28
+ * Last Edited 2018-09-29
  * Implemented using Binary Search in an ordered array
  * keys() returns Key[] with all keys
  * keys(int) returns key at keys[int]
@@ -11,6 +11,7 @@
  * get(Key) returns Key's value pair
  * put(Key, Value) adds Key-Value pair to array, if Key already exists in array only updates Value
  * contains(Key) determines whether key is in array
+ * nMaxKeys(int n, int nxth, BinarySearchST<String, Integer> st) returns n to nxth most frequent words in String[]-format
  * Test using FrequenceCounter yielded results:
  * N = 100, time taken by an average of 10 tests: 0.029ms, word "of"
  * N = 200, time taken by an average of 10 tests: 0.031ms, word "Chapter"
@@ -116,5 +117,88 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
 		else return false;
 	}
 	
+	public void read(int i) {
+		StdOut.print(keys(i));
+		StdOut.print();
+	}
 	
-}
+	//returns n to nxth most frequent words of symbol tree st
+	public String[] nMaxKeys(int n, int nxth, BinarySearchST<String, Integer> st) 
+	{
+		String max = "";
+		st.put(max, 0); // add a new key-value pair max-0 which will be placeholder for max keys
+		String[] ret = new String[nxth-n]; // String array to be returned with max keys in string form
+		int count = 0; // counter to keep track of n and nxth
+		int countret = 0; 
+		if((nxth - n) > 0) {
+			for (int i = 0; i < st.size(); i++) // for loop that is repeated n-nxth times
+			{
+				if (st.get(st.keys(i)) > st.get(max)) // finds max key
+				{	
+					String newmax = st.keys(i);
+					//StdOut.print(newmax + st.get(st.keys(i)));
+					max = newmax;
+				}
+				if(count < n  && i == st.size() - 1)  // if n is larger than 1 (i.e dont want first-n words)
+				{  // then simply set their Val to 0
+					//StdOut.print("123"); count++; i = 0;
+					st.put(max, 0);
+				}
+				else if(count >= n && count < nxth && i == st.size() - 1) { // once all unwanted words are removed
+					ret[countret] = max; // add max word to String[] to be returned, increase counters and reset forloop
+					countret++;
+					st.put(max, 0);
+					count++;
+					i = 0;
+				}
+			}
+			return ret;
+		}
+		else throw new ArrayIndexOutOfBoundsException();	
+	}
+	
+	/*public String nMaxKeys(int n, int nxth, BinarySearchST<String, Integer> st) {
+		
+		String max = "";
+		st.put(max, 0);
+		int count = 0;
+		if((nxth - n) > 0) {
+			for (int i = 0; i < st.size(); i++) 
+			{
+				if (st.get(st.keys(i)) > st.get(max)) 
+				{	
+					String newmax = st.keys(i);
+					StdOut.print(newmax + st.get(st.keys(i)));
+					max = newmax;
+				}
+				if(count < n  && i == st.size() - 1) { StdOut.print("123"); count++; i = 0;
+				st.put(max, 0);
+				}
+			}
+			return max;
+		}
+		else throw new ArrayIndexOutOfBoundsException();	
+	}
+	
+	public String nMaxKeys(int n, int nxth, BinarySearchST<String, Integer> st) {
+		String max = "";
+		st.put(max, 0);
+		
+		if((nxth - n) > 0) {
+			for (int i = 0; i < st.size(); i++) 
+			{
+				if (st.get(st.keys(i)) > st.get(max)) 
+				{
+					String newmax = st.keys(i);
+					max = newmax;
+				}
+			}
+			return max;
+		}
+		else throw new ArrayIndexOutOfBoundsException();*/
+		
+	}
+	
+
+	
+

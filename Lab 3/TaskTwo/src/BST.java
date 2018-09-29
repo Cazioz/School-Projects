@@ -1,6 +1,6 @@
 /* Task Two
  * Written By Oscar Eklund
- * Last Edited 2018-09-28
+ * Last Edited 2018-09-29
  * Implemented using Binary Search Tree Symbol Table
  * Test using FrequenceCounter yielded results:
  * size() returns amount of elements in symbol tree
@@ -18,6 +18,7 @@
  * N = 2000, time taken by an average of 10 tests: 0.041ms, word "the"
  * N = 10000, time taken by an average of 10 tests: 0.063ms, word "the"
  */
+
 public class BST<Key extends Comparable<Key>, Value>
 {
 	public static void main(String[] args) {
@@ -38,111 +39,116 @@ public class BST<Key extends Comparable<Key>, Value>
 		
 	}
 	private Node root; // root of BST
+	
+	//Node (like the concept of linked list) used to created symbol tree
 	private class Node
 	{
-		private Key key; // key
-		private Value val; // associated value
-		private Node left, right; // links to subtrees
-		private int N; // # nodes in subtree rooted here
+		private Key key; 
+		private Value val; 
+		private Node left, right; 
+		private int N; 
 		
 		public Node(Key key, Value val, int N)
 		{ this.key = key; this.val = val; this.N = N; }
 	}
+	
+	//function that returns size of symbol tree
 	public int size()
 	{ return size(root); }
 	
 	private int size(Node x)
 	{
 		if (x == null) return 0;
-		else return x.N;
+		else return x.N; // N is # of nodes in symbol tree
 	}
 	
+	//returns min key 
 	public Key min()
 	{
 		return min(root).key;
 	}
 	
-	private Node min(Node x)
+	private Node min(Node x) //traverses to the left until reaching x.left == null and returns that element
 	{
 		if (x.left == null) return x;
 		return min(x.left);
 	}
 	
+	//returns max key
 	public Key max()
 	{
 		return max(root).key;
 	}
 	
+	//like min except it traverses to the right
 	private Node max(Node x)
 	{
 		if (x.right == null) return x;
 		return max(x.right);
 	}
 	
+	//returns all keys 0....size using method overloading
 	public String[] keys(int size)
 	{ return keys(min(), max(), size); }
 	
-	public String[] keys(Key lo, Key hi, int size)
+	//returns String[] representation of symbol tree
+	public String[] keys(Key lo, Key hi, int size) 
 	{
 		String[] queue = new String[size];
 		keys(root, queue, lo, hi);
 		return queue;
 	}
 	
-	public int count = 0;
+	public int count = 0; //helper variable to decide position in String[] queue
 	
 	private void keys(Node x, String[] queue, Key lo, Key hi)
 	{
-		
-		if (x == null) return;
-		int cmplo = lo.compareTo(x.key);
+		if (x == null) return; // if x is empty(null)
+		int cmplo = lo.compareTo(x.key); 
 		int cmphi = hi.compareTo(x.key);
-		if (cmplo < 0) {
-			keys(x.left, queue, lo, hi);
-			}
-		if (cmplo <= 0 && cmphi >= 0 && count < queue.length) 
+		if (cmplo < 0) { //if lo < x.key
+			keys(x.left, queue, lo, hi); //recursive call to find all values to the left of lo
+		}
+		if (cmplo <= 0 && cmphi >= 0 && count < queue.length) //if key is between min and low and count is not larger than queue.length
 		{
 			//StdOut.print("adding " + x.key + " to count = " + count);
-			
-			queue[count]=(String) (x.key);
+			queue[count]=(String) (x.key); //adds x.key to String[]
 			count++;
-			
 		}
-		if (cmphi > 0) keys(x.right, queue, lo, hi);
+		if (cmphi > 0) keys(x.right, queue, lo, hi); //if x.key > max (which it really shouldn't ever be)
 	}
 	
-
+	//returns Value of Key
 	public Value get(Key key)
 	{ return get(root, key); }
 	
 	private Value get(Node x, Key key)
-	{ // Return value associated with key in the subtree rooted at x;
-		// return null if key not present in subtree rooted at x.
+	{ 
 		if (x == null) return null;
 		int cmp = key.compareTo(x.key);
-		if (cmp < 0) return get(x.left, key);
+		if (cmp < 0) return get(x.left, key); // recursive functions to ensure correct key is selected
 		else if (cmp > 0) return get(x.right, key);
-		else return x.val;
+		else return x.val; // and then Value is returned
 	}
 	
+	//adds key to symbol tree if it is not already in tree, if so then updates Value
 	public void put(Key key, Value val)
-	{ // Search for key. Update value if found; grow table if new.
+	{
 		root = put(root, key, val);
 	}
 	
 	private Node put(Node x, Key key, Value val)
 	{
-		// Change key’s value to val if key in subtree rooted at x.
-		// Otherwise, add new node to subtree associating key with val.
-		if (x == null) return new Node(key, val, 1);
+		if (x == null) return new Node(key, val, 1); // if node is an empty node (aka if symbol tree is empty since it is called using root)
 		int cmp = key.compareTo(x.key);
-	 	if (cmp < 0) x.left = put(x.left, key, val);
-	 	else if (cmp > 0) x.right = put(x.right, key, val);
-	 	else x.val = val;
-	 	x.N = size(x.left) + size(x.right) + 1;
+	 	if (cmp < 0) x.left = put(x.left, key, val); // ensures correct position according to binary symbol tree
+	 	else if (cmp > 0) x.right = put(x.right, key, val); // ensures correct position according to binary symbol tree
+	 	else x.val = val; // updates value of x
+	 	x.N = size(x.left) + size(x.right) + 1; // updates size of symbol tree
 	 	return x;
 	}
-	
+
+	//simple function to check whether symbol tree contains Key
 	public boolean contains(Key key) {
 		if(get(key) != null) {
 			return true;
