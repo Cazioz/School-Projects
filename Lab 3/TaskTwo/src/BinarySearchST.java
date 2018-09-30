@@ -117,11 +117,6 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
 		else return false;
 	}
 	
-	public void read(int i) {
-		StdOut.print(keys(i));
-		StdOut.print();
-	}
-	
 	//returns n to nxth most frequent words of symbol tree st
 	public String[] nMaxKeys(int n, int nxth, BinarySearchST<String, Integer> st) 
 	{

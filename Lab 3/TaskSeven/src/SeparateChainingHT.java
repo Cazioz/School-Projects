@@ -1,38 +1,6 @@
 
 public class SeparateChainingHT<Key, Value> {
 	
-	public static void main(String[] args) {
-		SeparateChainingHT<String, Integer> st = new SeparateChainingHT<String, Integer>(97);
-		/*StdOut.print(st.hash("abc"));
-		StdOut.print(st.hash("12345"));
-		st.put("abc", 2);
-		st.put("abcd", 2);
-		st.put("1234", 3);
-		StdOut.print(st.hash("1234"));
-		StdOut.print(st.get("abc"));
-		StdOut.print(st.get("1234"));
-		System.out.print(st.contains("1234"));
-		StdOut.print(st.contains(2));*/
-		int count = 0;
-		int minlen = Integer.parseInt(args[0]);
-		int N = 140000;
-		while (!StdIn.isEmpty() && count < N-1)
-		{ // Build symbol table and count frequencies.
-			count++;
-			String word = StdIn.readString();
-			//StdOut.print(word);
-			if (word.length() < minlen) continue; // Ignore short keys.
-			if (!st.contains(word)) st.put(word, 1);
-			// else st.put(word, st.get(word) + 1);
-		}
-		for(int i = 0; i < 97; i++){
-			StdOut.print(st.size(i) + " ");
-		}
-	}
-	
-	private int M; // size of hash table
-	private BinarySearchST<String, Integer>[] st;
-	
 	public SeparateChainingHT(int M) // creates an array (size M) of ordered arrays (binary search)
 	{
 		this.M = M; //size of this hash table
@@ -72,5 +40,4 @@ public class SeparateChainingHT<Key, Value> {
 	 { 
 		 st[hash(key)].put(key, val); 
 	 }
-	 
 }
