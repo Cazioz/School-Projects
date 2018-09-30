@@ -1,4 +1,9 @@
-
+/* Task Five
+ * Written By Oscar Eklund
+ * Last Edited 2018-09-30
+ * Creates a hash table of ordered arrays (binary search) 
+ * and prints out sizes of all ordered arrays
+ */
 public class SeparateChainingHT<Key, Value> {
 	
 	public static void main(String[] args) {
@@ -39,7 +44,7 @@ public class SeparateChainingHT<Key, Value> {
 		st = (BinarySearchST<String, Integer>[]) new BinarySearchST[M]; 
 		for(int i = 0; i < M; i++) 
 		{
-			st[i] = new BinarySearchST<String, Integer>(250); 
+			st[i] = new BinarySearchST<String, Integer>(250); // M > key-value pairs
 		}
 	}
 	
