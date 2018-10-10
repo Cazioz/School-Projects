@@ -7,7 +7,7 @@ public class FrequencyCounter
 	public static void main(String[] args)
 	{
 		Stopwatch timer = new Stopwatch(); //stopwatch to check time taken
-		int N = 20000; // how many words to sort
+		int N = 150000; // how many words to sort
 		int bstkeysize = N + 1; //
 		int count = 0;
 		int minlen = Integer.parseInt(args[0]); // key-length cutoff
@@ -81,7 +81,7 @@ public class FrequencyCounter
 		StdOut.print("ab" + st.keys(i));
 		}*/
 		
-		String[] abc =st.nMaxKeys(0, 6, st);
+		String[] abc =st.nMaxKeys(0, 3, st);
 		for(int i = 0; i < abc.length; i++) {
 			StdOut.print(abc[i] + "\n");
 		}
