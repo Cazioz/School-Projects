@@ -1,4 +1,4 @@
-/* Task Five
+/* Task Six
  * Written by Oscar Eklund
  * Last Edited: 2018-10-11
  * Implemented using code from book with only slight changes
@@ -34,9 +34,9 @@ public class DirectedDFS
 	{
 		//String[] States = {"a", "b", "c", "d", "e", "f", "g"};
 		String[] States = readGraph.readGraph(new In(args[0]));
-		/*for(int i = 0; i < States.length; i++) {
+		for(int i = 0; i < States.length; i++) {
 			StdOut.print(States[i]);
-		}*/
+		}
 		Digraph G = new Digraph(States.length, States, new In(args[0]));
 		Bag<Integer> sources = new Bag<Integer>();
 		sources.add(G.StateIndex(args[1]));

@@ -1,3 +1,8 @@
+/* Task Three
+ * Written by Oscar Eklund
+ * Last Edited: 2018-10-11
+ * In hindsight this implementation could've been done much better..
+ */
 public class Dijkstra {
 	
 	public static void main(String[] args){

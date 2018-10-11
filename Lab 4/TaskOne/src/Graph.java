@@ -1,3 +1,8 @@
+/*Task One & Two
+ * Written by Oscar Eklund
+ * Last Edited: 2018-10-11
+ * Note most is copied from book with only slight changes
+ */
 public class Graph {
 	public static void main(String args[]) {
 		Graph G = new Graph(new In(args[0]));

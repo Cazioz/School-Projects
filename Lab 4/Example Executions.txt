@@ -1,0 +1,48 @@
+1. Graph: 
+0 1
+0 2
+2 3
+2 6
+3 6
+3 5
+3 4
+4 1
+4 5
+5 6
+java DepthFirstPaths Test.txt 0 4 (this gives A (not necessarily shortest) path from 0 to 4.
+Result: 0 to 4: 0-2-6-5-4
+
+2. Same graph as task 1.
+java BreadthFirstPaths 0 4
+Result: 0-1-4 (drawing the graph reveals that this is correct)
+
+3. 1(5)2 means from node 1 to node 2 with a weight of 5, Graph:
+0(5)1
+0(10)2
+1(10)3
+1(5)4
+2(10)3
+2(20)4
+java Dijkstra 0 3 (path from 0 to 3)
+Result: Path = 3 <- 1 <- 0 (drawing the graph reveals that this is correct)
+
+Part 2
+1. Graph: (note also tested with data base)
+a b
+b c
+c c
+d e
+e f
+f d
+g c
+java DirectedDPS Test.txt a c
+Result: A path exists
+java DirectedDPS Test.txt a d
+Result: No path exists (drawing the graph reveals that both are correct)
+2. Graph: database
+java DirectedCycle Data.txt
+Result: No cycle exists
+
+Adding an edge (example GA AL)
+java DirectedCycle Data.txt
+Result: A cycle exists

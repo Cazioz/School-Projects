@@ -1,3 +1,9 @@
+/*Task Two
+ * Written by Oscar Eklund
+ * Last Edited: 2018-10-11
+ * Exactly the same as task One except BFS is used and shortest path is found
+ */
+
 public class BreadthFirstPaths
 {
 	public static void main(String[] args)
@@ -8,14 +14,16 @@ public class BreadthFirstPaths
 		BreadthFirstPaths search = new BreadthFirstPaths(G, s);
 		StdOut.print(s + " to " + Y + ": ");
 		if (search.hasPathTo(Y)) // check whether any path exists
-			for (int x : search.pathTo(Y)) // 
+			for (int x : search.pathTo(Y)) // iterate over pathTo and get a path from s to Y
 				if (x == s) StdOut.print(x);
 				else StdOut.print("-" + x);
 			StdOut.println();
 	}
+	
 	private boolean[] marked; // Is a shortest path to this vertex known?
 	private int[] edgeTo; // last vertex on known path to this vertex
 	private final int s; // source
+	
 	public BreadthFirstPaths(Graph G, int s)
 	{
 		marked = new boolean[G.V()];
@@ -46,9 +54,9 @@ public class BreadthFirstPaths
 	
 	public Iterable<Integer> pathTo(int v)
 	{
-		if (!hasPathTo(v)) return null;
-		ResizingArrayStack<Integer> path = new ResizingArrayStack<Integer>();
-		for (int x = v; x != s; x = edgeTo[x])
+		if (!hasPathTo(v)) return null; // if no path exists
+		ResizingArrayStack<Integer> path = new ResizingArrayStack<Integer>(); // used to save the path
+		for (int x = v; x != s; x = edgeTo[x]) // pushes the last vertex to stack effectively creating a path
 			path.push(x);
 		path.push(s);
 		return path;

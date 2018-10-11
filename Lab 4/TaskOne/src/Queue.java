@@ -1,3 +1,8 @@
+/*Task Two
+ * Written by Oscar Eklund
+ * Last Edited: 2018-10-11
+ * Note most is copied from book with only slight changes
+ */
 import java.util.Iterator;
 
 public class Queue<Item> implements Iterable<Item>
